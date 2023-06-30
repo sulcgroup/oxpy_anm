@@ -352,7 +352,7 @@ void DNANMInteraction::read_topology(int *N_strands, std::vector<BaseParticle*> 
 number DNANMInteraction::pair_interaction(BaseParticle *p, BaseParticle *q, bool compute_r, bool update_forces){
     int interaction_type = get_id(p->btype) + get_id(q->btype);
 
-    if (interaction_type == 0 | interaction_type == 2){
+    if (interaction_type == 0 || interaction_type == 2){
         if(p->is_bonded(q)) return pair_interaction_bonded(p, q, compute_r, update_forces);
         else return pair_interaction_nonbonded(p, q, compute_r, update_forces);
     }
